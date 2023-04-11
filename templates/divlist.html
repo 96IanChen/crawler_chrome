@@ -1,0 +1,46 @@
+{% extends "base2.html" %}
+
+{% block content %}
+<style>
+    .table 
+    {
+        border:1px solid black;
+        text-align: center;
+    }
+    tr 
+    {
+        vertical-align: middle;
+    }
+</style>
+<script>
+
+</script>
+<div class="container">
+    <table class="table caption-top table-bordered">
+        <caption><h2></h2></caption>
+        <thead>
+            <tr>
+                <th>div名稱</th>
+                <th>div編號</th>
+                <th>選擇按鈕</th>
+            </tr>
+        </thead>
+        {% for div in divs %}
+        <tbody>
+            <tr>
+                <td>{{ div.content }}</td>
+                <td>{{ div.divnumber }}</td>
+                <td>
+                    <p>
+                        <input type="button" value="選擇" onclick="location.href='{{ div.id }}/result/'">
+                        <!--<small class="d-block">點擊次數:{{ game.timecounter }}</small>-->
+                    </p>
+                </td>
+            </tr>
+        </tbody>
+        {% endfor %}
+    </table>
+    <!--<input type="button" value="點擊" onclick="location.href='timereserve/'">-->
+</div>
+    
+{% endblock %}

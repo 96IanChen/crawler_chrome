@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <form method="post" action="/crawler/" id="form1" name="form1">
+        {% csrf_token %}
+        <table class="table caption-top">
+            <caption><h2></h2></caption>
+            <thead>
+                <tr>
+                    <th style="width: 50%;">查詢條件</th>
+                    <th>內容</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="width: 50%;">網站網址</td>
+                    <td>https://shopee.tw/</td>
+                    <!--<td><input name="Web" type="text" class="normalinput" id="Web" value="{{Web1}}" required/></td>-->
+                </tr>
+                <tr>
+                    <td style="width: 50%;">資料類型</td>
+                    <td><input name="DataType" type="text" class="normalinput" id="DataType" value="{{Datatype1}}" required/></td>
+                </tr>
+                <tr>
+                    <td style="width: 50%;">關鍵字</td>
+                    <td><input name="KeyWord" type="text" class="normalinput" id="KeyWord" value="{{Keyword1}}" required/></td>
+                </tr>
+                <tr>
+                    <td style="width: 50%;">查詢筆數</td>
+                    <td><input name="Counts" type="text" class="normalinput" id="Counts" value="{{Counts1}}" required/></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" name="submit" value="確認" /></td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+    <!--<table class="table caption-top">
+        <caption><h2></h2></caption>
+        <thead>
+            <tr>
+                <th style="width: 50%;">查詢條件</th>
+                <th>內容</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="width: 50%;">網站網址</td>
+                <td>https://shopee.tw/search?keyword=a51</td>
+            </tr>
+            <tr>
+                <td style="width: 50%;">資料類型</td>
+                <td>div</td>
+            </tr>
+            <tr>
+                <td style="width: 50%;">關鍵字</td>
+                <td>col-xs-2-4 shopee-search-item-result__item</td>
+            </tr>
+            <tr>
+                <td style="width: 50%;">查詢筆數</td>
+                <td>5</td>
+            </tr>
+        </tbody>
+    </table>
+    <button type="button" class="btn btn-primary" onclick="location.href='/crawler/'">選擇</button>-->
+</div>
+{% endblock %}

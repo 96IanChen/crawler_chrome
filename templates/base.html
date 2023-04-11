@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-hant">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+    <title>網路爬蟲</title>
+    {% load static %}
+    <style>
+        .home
+        {
+            text-align: center;
+        }
+        .a2
+        {
+            color: darkmagenta;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="home">網站內容爬取</h1>
+    <div class="container">
+        <a href="/divlist/">查看結果</a>
+        <!--<a href="/phonesearch/">查詢預約結果(客戶)</a>
+        {% if request.user.is_authenticated %}
+        <a class="a2" href="/reservelist/">查詢預約結果(店家)</a>
+        <a class="a2" href="/unreservelist/">開啟/取消時段(店家)</a>
+        <a class="a2" href="/createdata/">初始設定(店家)</a>
+        <a class="a2" href="/accounts/logout/">登出</a>
+        {% else %}
+        <a href="/accounts/login/">登入</a>
+        {% endif %}-->
+    </div>
+    <hr>
+    <div>
+        <div class="container">
+            <!--<img src="{% static "images/001.jpg" %}" width="640" height="450" />
+            <img src="{% static "images/002.jpg" %}" width="640" height="450" />
+            <img src="{% static "images/barber.png" %}" width="1280" height="720" />-->
+        </div>
+        {% block content %}{% endblock %}
+    </div>
+    <div>
+        <div id="footer"></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
+</body>
+</html>

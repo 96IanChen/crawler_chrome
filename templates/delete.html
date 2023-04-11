@@ -1,0 +1,29 @@
+{% extends "base4.html" %}
+
+{% block content %}
+<style>
+    .table 
+    {
+        border:1px solid black;
+        text-align: center;
+    }
+    tr 
+    {
+        vertical-align: middle;
+    }
+    th 
+    {
+        color: rgb(5, 126, 31);
+    }
+</style>
+<script>
+
+</script>
+<div class="container">
+    <h3>是否要刪除第{{ div.divnumber }}個div的查詢結果?</h3>
+    <p>
+        <input type="button" value="是的" onclick="location.href='/enddelete/'">
+    </p>
+</div>
+    
+{% endblock %}

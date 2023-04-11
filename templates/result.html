@@ -1,0 +1,47 @@
+{% extends "base3.html" %}
+
+{% block content %}
+<style>
+    .table 
+    {
+        border:1px solid black;
+        text-align: center;
+    }
+    tr 
+    {
+        vertical-align: middle;
+    }
+    th 
+    {
+        color: rgb(5, 126, 31);
+    }
+</style>
+<script>
+
+</script>
+<div class="container">
+    <table class="table caption-top table-bordered">
+        <caption><h2></h2></caption>
+        <thead>
+            <tr>
+                <th>text內容</th>
+                <th>刪除按鈕</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            {% for text in texts %}
+            <tr>
+                <td>{{ text.content }}</td>
+                <td>
+                    <button type="button" class="btn btn-primary" onclick="location.href='delete/'">選擇</button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <!--<button type="button" class="btn btn-primary" onclick="location.href='delete/'">選擇</button>
+    <input type="button" value="刪除" onclick="location.href='delete/'">-->
+</div>
+    
+{% endblock %}
