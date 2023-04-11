@@ -29,54 +29,54 @@ def crawler(request):
     counts = request.POST.get('Counts', '')
 
     #while True:
-    #for i in range(3):
-    options = Options()
-    options.add_argument("--disable-notifications")
-    
-    chrome = webdriver.Chrome('C:\\Users\ian\Desktop\crawler_chrome\chromedriver', chrome_options=options)
-    chrome.get("https://shopee.tw/")
-    time.sleep(3)
-    chrome.maximize_window()
-
-    # 尋找網頁中的搜尋框
-    inputElement = chrome.find_element_by_class_name("shopee-searchbar-input__input")
-
-    # 在搜尋框中輸入文字
-    inputElement.send_keys(keyword+Keys.ENTER)
-
-    #chrome.get("https://shopee.tw/search?keyword=a51")
-    chrome.get("https://shopee.tw/search?keyword="+keyword)
-    time.sleep(5)
-
-    soup = BeautifulSoup(chrome.page_source, 'html.parser')
-
-    # datatype:div
-    # keyword:col-xs-2-4 shopee-search-item-result__item 
-    # counts:int(counts)
-
-    titles = soup.find_all(datatype, {
-        'class': 'col-xs-2-4 shopee-search-item-result__item'}, limit=int(counts))
-
-    #titles = soup.find_all('div', {
-        #'class': 'col-xs-2-4 shopee-search-item-result__item'}, limit=5)
-
-    for title in titles:
+    for i in range(3):
+        options = Options()
+        options.add_argument("--disable-notifications")
         
-        dit = str(title)
-        div = Div(content=dit, divnumber=count)
-        div.save()
+        chrome = webdriver.Chrome('C:\\Users\ian\Desktop\crawler_chrome\chromedriver', chrome_options=options)
+        chrome.get("https://shopee.tw/")
+        time.sleep(3)
+        chrome.maximize_window()
 
-        post = title.find('div', {'class': 'ie3A+n bM+7UW Cve6sh'})
-    
-        if post:
-            textpr = post.getText()
-            text = Text(content=textpr, div=div)
-            text.save()
-            print(post.getText())
-        count += 1
-    chrome.close()
+        # 尋找網頁中的搜尋框
+        inputElement = chrome.find_element_by_class_name("shopee-searchbar-input__input")
 
-        #time.sleep(600)
+        # 在搜尋框中輸入文字
+        inputElement.send_keys(keyword+Keys.ENTER)
+
+        #chrome.get("https://shopee.tw/search?keyword=a51")
+        chrome.get("https://shopee.tw/search?keyword="+keyword)
+        time.sleep(5)
+
+        soup = BeautifulSoup(chrome.page_source, 'html.parser')
+
+        # datatype:div
+        # keyword:col-xs-2-4 shopee-search-item-result__item 
+        # counts:int(counts)
+
+        titles = soup.find_all(datatype, {
+            'class': 'col-xs-2-4 shopee-search-item-result__item'}, limit=int(counts))
+
+        #titles = soup.find_all('div', {
+            #'class': 'col-xs-2-4 shopee-search-item-result__item'}, limit=5)
+
+        for title in titles:
+            
+            dit = str(title)
+            div = Div(content=dit, divnumber=count)
+            div.save()
+
+            post = title.find('div', {'class': 'ie3A+n bM+7UW Cve6sh'})
+        
+            if post:
+                textpr = post.getText()
+                text = Text(content=textpr, div=div)
+                text.save()
+                print(post.getText())
+            count += 1
+        chrome.close()
+
+        time.sleep(60)
     #chrome.quit()
     return redirect("/home/")
     #return render(request, "crawler.html", locals())
