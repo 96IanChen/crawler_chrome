@@ -28,8 +28,8 @@ def crawler(request):
     keyword = request.POST.get('KeyWord', '')
     counts = request.POST.get('Counts', '')
 
-    #while True:
-    for i in range(3):
+    while True:
+    #for i in range(3):
         options = Options()
         options.add_argument("--disable-notifications")
         
@@ -76,7 +76,7 @@ def crawler(request):
             count += 1
         chrome.close()
 
-        time.sleep(60)
+        time.sleep(1800)
     #chrome.quit()
     return redirect("/home/")
     #return render(request, "crawler.html", locals())
