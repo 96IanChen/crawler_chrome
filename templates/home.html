@@ -31,11 +31,12 @@
                     <td><input name="Counts" type="text" class="normalinput" id="Counts" value="{{Counts1}}" required/></td>
                 </tr>
                 <tr>
-                    <td><input type="submit" name="submit" value="確認" /></td>
+                    <td><input type="submit" id="submit" name="submit" value="確認" /></td>
                 </tr>
             </tbody>
         </table>
     </form>
+    <h1 id="loading"></h1>
     <!--<table class="table caption-top">
         <caption><h2></h2></caption>
         <thead>
@@ -65,4 +66,30 @@
     </table>
     <button type="button" class="btn btn-primary" onclick="location.href='/crawler/'">選擇</button>-->
 </div>
+<script>
+    document.getElementById("submit").addEventListener("click", function(){
+        document.getElementById("loading").innerHTML = "正在執行爬取資料的動作～請勿按下其他按鈕或連結！";
+
+        // 宣告一個全域變數來儲存計時器的秒數
+        let seconds = 0;
+
+        // 宣告一個 setInterval 函數，每秒更新計時器並顯示到網頁上
+        setInterval(function() {
+        // 將秒數加1
+        seconds++;
+
+        // 將秒數轉換成分鐘和秒數
+        let minutes = Math.floor(seconds / 60);
+        let remainingSeconds = seconds % 60;
+
+        // 如果分鐘和秒數小於10，則在前面加上0
+        if (remainingSeconds < 10) {
+            remainingSeconds = "0" + remainingSeconds;
+        }
+
+        // 將計時器的值顯示到網頁上
+        document.getElementById("timer").innerHTML = minutes + ":" + remainingSeconds;
+        }, 1000);
+    });
+</script>
 {% endblock %}
